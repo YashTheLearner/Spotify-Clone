@@ -1,6 +1,6 @@
 
 async function getSongs() {
-    let a = await fetch("http://127.0.0.1:5500/songs/");
+    let a = await fetch("/songs/");
     let response = await a.text();
     let div = document.createElement("div");
     div.innerHTML = response;
@@ -15,7 +15,7 @@ async function getSongs() {
     return songs;
 }
 async function getTs() {
-    let a = await fetch("http://127.0.0.1:5500/ts/");
+    let a = await fetch("/ts/");
     let response = await a.text();
     let div = document.createElement("div");
     div.innerHTML = response;
@@ -30,7 +30,7 @@ async function getTs() {
     return ts;
 }
 async function getCover() {
-    let a = await fetch("http://127.0.0.1:5500/songs-cover/");
+    let a = await fetch("/songs-cover/");
     let response = await a.text();
     // console.log(response)
     let div = document.createElement("div");
