@@ -210,9 +210,11 @@ function militosec(seconds) { // Adjusted function to work with seconds directly
         currSong.addEventListener("timeupdate", () => {
             let currTime = militosec(currSong.currentTime);
             document.querySelector(".currTime").innerText = currTime;
-            let Duration = militosec(currSong.duration);
+            if (!isNaN(currSong.duration)) {
+                let Duration = militosec(currSong.duration);
+           
             document.querySelector(".totalTime").innerText = Duration;
-            document.querySelector(".circle").style.left = (currSong.currentTime/currSong.duration)*100 + "%";
+             } document.querySelector(".circle").style.left = (currSong.currentTime/currSong.duration)*100 + "%";
         })
 
         document.querySelector(".loop").addEventListener("click",()=>{
