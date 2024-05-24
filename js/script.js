@@ -68,7 +68,7 @@ async function getCover() {
             songsCover.push(element.href)
         }
     }
-    // console.log(songsCover)
+    console.log(songsCover)
     return songsCover;
 }
 
@@ -86,7 +86,7 @@ const playMusic = (track) => {
         track = "/ts/" + track + ".mp3"
     }
     else{
-        track = "/songs/" + track + ".mp3"
+        track = "/Songs/" + track + ".mp3"
     }
     
     console.log(track);
