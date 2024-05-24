@@ -1,19 +1,31 @@
-
+// async function getSongs() {
+//     let a = await fetch("https://github.com/YashTheLearner/Spotify-Clone/tree/main/Songs", { mode: 'no-cors' });
+//     let response = await a.text();
+//     console.log(response);
+//     let div = document.createElement("div");
+//     div.innerHTML = response;
+//     let as = div.getElementsByTagName("a");
+//     let songs = [];
+//     for (let index = 0; index < as.length; index++) {
+//         const element = as[index];
+//         if (element.href.endsWith(".mp3")) {
+//             songs.push(element.href)
+//         }
+//     }
+//     console.log(songs)
+//     return songs;
+// }
 async function getSongs() {
-    let a = await fetch("/songs/");
-    let response = await a.text();
-    let div = document.createElement("div");
-    div.innerHTML = response;
-    let as = div.getElementsByTagName("a");
-    let songs = [];
-    for (let index = 0; index < as.length; index++) {
-        const element = as[index];
-        if (element.href.endsWith(".mp3")) {
-            songs.push(element.href)
-        }
-    }
+    let response = await fetch("https://api.github.com/repos/YashTheLearner/Spotify-Clone/contents/Songs");
+    let data = await response.json();
+    let songs = data
+        .filter(item => item.type === 'file' && item.name.endsWith('.mp3'))
+        .map(item => item.download_url);
+    console.log(songs);
     return songs;
 }
+
+
 async function getTs() {
     let a = await fetch("/ts/");
     let response = await a.text();
@@ -27,6 +39,7 @@ async function getTs() {
             ts.push(element.href)
         }
     }
+    console.log(ts)
     return ts;
 }
 async function getCover() {
