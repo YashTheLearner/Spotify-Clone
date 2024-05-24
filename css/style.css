@@ -606,6 +606,12 @@ font-size: 25px;
     height: 70vh;
   }
 }
+
+@media (max-width:419px){
+  .left{
+    width: 100vw;
+  }
+}
 @media (max-width:362px){
   .btn1{
     display: none;
@@ -619,9 +625,7 @@ font-size: 25px;
     width: 200px;
     border: 2px solid white;
   }
-  .left{
-    width: 100vw;
-  }
+  
 }
 
 
