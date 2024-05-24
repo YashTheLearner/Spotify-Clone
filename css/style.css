@@ -563,7 +563,7 @@ font-size: 25px;
   .left{
     position: absolute;
     left: -200%;
-    width: 325px;
+    width: 350px;
     background-color: #000000;
     transition: all 0.3s;
   }
@@ -618,6 +618,9 @@ font-size: 25px;
     height: 200px;
     width: 200px;
     border: 2px solid white;
+  }
+  .left{
+    width: 100vw;
   }
 }
 
