@@ -130,7 +130,7 @@ function militosec(seconds) { // Adjusted function to work with seconds directly
         function krsna() {
 
             for (const song of songs) {
-                let songName = song.split("/songs/")[1];
+                let songName = song.split("/Songs/")[1];
                 songName = decodeURIComponent(songName);
                 // console.log(songName)
                 sngs.innerHTML = sngs.innerHTML + `<div class="song" >
