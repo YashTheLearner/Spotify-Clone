@@ -616,6 +616,9 @@ font-size: 25px;
   .btn1{
     display: none;
   }
+  .c1txt{
+    height: 60px;
+  }
   .cards-a{
     flex-direction: column;
   }
