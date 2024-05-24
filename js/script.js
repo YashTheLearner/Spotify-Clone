@@ -26,22 +26,34 @@ async function getSongs() {
 }
 
 
+// async function getTs() {
+//     let a = await fetch("/ts/");
+//     let response = await a.text();
+//     let div = document.createElement("div");
+//     div.innerHTML = response;
+//     let as = div.getElementsByTagName("a");
+//     let ts = [];
+//     for (let index = 0; index < as.length; index++) {
+//         const element = as[index];
+//         if (element.href.endsWith(".mp3")) {
+//             ts.push(element.href)
+//         }
+//     }
+//     console.log(ts)
+//     return ts;
+// }
+
 async function getTs() {
-    let a = await fetch("/ts/");
-    let response = await a.text();
-    let div = document.createElement("div");
-    div.innerHTML = response;
-    let as = div.getElementsByTagName("a");
-    let ts = [];
-    for (let index = 0; index < as.length; index++) {
-        const element = as[index];
-        if (element.href.endsWith(".mp3")) {
-            ts.push(element.href)
-        }
-    }
-    console.log(ts)
+    let response = await fetch("https://api.github.com/repos/YashTheLearner/Spotify-Clone/contents/ts");
+    let data = await response.json();
+    let ts = data
+        .filter(item => item.type === 'file' && item.name.endsWith('.mp3'))
+        .map(item => item.download_url);
+    console.log(ts);
     return ts;
 }
+
+
 async function getCover() {
     let a = await fetch("/songs-cover/");
     let response = await a.text();
