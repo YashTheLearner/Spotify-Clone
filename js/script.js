@@ -1,3 +1,5 @@
+
+
 // async function getSongs() {
 //     let a = await fetch("https://github.com/YashTheLearner/Spotify-Clone/tree/main/Songs", { mode: 'no-cors' });
 //     let response = await a.text();
@@ -21,10 +23,19 @@ async function getSongs() {
     let songs = data
         .filter(item => item.type === 'file' && item.name.endsWith('.mp3'))
         .map(item => item.download_url);
-    console.log(songs);
+    // console.log(songs);
     return songs;
 }
 
+async function getMySongs() {
+    let response = await fetch("https://drive.google.com/drive/folders/1VTmU3DVtuMABMewj9jvhpPn0IKttfQmK?usp=sharing");
+    let data = await response.json();
+    let mysongs = data
+        .filter(item => item.type === 'file' && item.name.endsWith('.mp3'))
+        .map(item => item.download_url);
+    // console.log(mysongs);
+    return mysongs;
+}
 
 // async function getTs() {
 //     let a = await fetch("/ts/");
@@ -121,7 +132,8 @@ function militosec(seconds) { // Adjusted function to work with seconds directly
 (
     async function () {
         let songs = await getSongs();
-        // console.log(songs)
+        // let mysongs = await getMySongs();
+        // console.log(mysongs)
         let cover = await getCover();
         let tarr = await getTs();
         // console.log(Taylor)
