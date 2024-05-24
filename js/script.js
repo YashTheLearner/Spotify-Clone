@@ -88,6 +88,7 @@ const playMusic = (track) => {
     else{
         track = "/Songs/" + track + ".mp3"
     }
+
     
     console.log(track);
     currSong.src = track;
@@ -178,11 +179,14 @@ function militosec(seconds) { // Adjusted function to work with seconds directly
             i=1;
         }
 
-
+        let sel;
         let select =()=>{
         Array.from(document.querySelector(".songs").getElementsByClassName("song")).forEach(e => {
             e.addEventListener("click", () => {
                 track = e.firstElementChild.lastElementChild.innerHTML;
+                if(sel!=e && sel!=undefined){sel.classList.toggle("border");}
+                e.classList.toggle("border");
+                sel = e;
                 // if(song.firstElementChild.lastElementChild.innerHTML==track)
                 console.log(e)
                 playMusic(track)
