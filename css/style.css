@@ -1,0 +1,682 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Oswald:wght@200..700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #000000;
+  color: white;
+  /* font-family: "Oswald","Noto Sans JP"; */
+}
+.container {
+  display: flex;
+  height: 88vh;
+  padding: 10px;
+  font-family: "Noto Sans JP";
+}
+.left {
+
+  width: 300px;
+  margin-right: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.middle {
+  background-color: #121212;
+  width: 53vw;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.right{
+  width: 22vw;
+  height: 84.6vh;
+  margin-left: 12px;
+  background-color:#121212 ;
+  align-content: center;
+}
+.cardr{
+  /* background-color: #54d76e; */
+  width: 20vw;
+  /* border: #ffffff 2px solid; */
+  height: 80vh;
+  justify-content: center;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4vh;
+  font-size: 24px;
+  font-weight: 600;
+}
+.cardr-logo{
+  /* margin-top: 5vh; */
+  background-position: center;
+  width: 20vw;
+  height: 20vw;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url(/songs-cover/KR$NA\ -\ MAKASAM\ -\ KALAMKAAR.jpg);
+  /* background-color: #54d76e; */
+}
+.cardr-txt{
+  text-align: center;
+}
+.nav {
+  font-weight: 800;
+  background-color: #121212;
+  height: 166px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  padding-left: 6px;
+  color: #bdbdbd;
+}
+.lib {
+  background-color: #121212;
+  height: 58vh;
+  border-radius: 10px;
+  padding-top: 3px;
+}
+.lib1 {
+  display: flex;
+  height: 55px;
+}
+.lib-logo {
+  width: 60px;
+  background-size: 34px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url(/images/lib.svg);
+}
+.lib-txt {
+  align-content: center;
+  color: #bdbdbd;
+  font-weight: 700;
+}
+.songs{
+  height: 46vh;
+  overflow-y: auto;
+}
+.song{
+  display: flex;
+  margin-top: 10px;
+  justify-content: space-between;
+  padding: 0px 15px;
+  list-style: none;
+
+}
+.border{
+  border: #ffffff 2px solid;
+}
+.sng-info {
+  display: flex;
+  overflow-x: scroll; /* Enable horizontal scrolling */
+  align-items: center;
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+.sng-logo{
+  background-image: url("/songs-cover/KR$NA\ -\ MAKASAM\ -\ KALAMKAAR.jpg");
+  /* background-color: #54d76e; */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-right: 10px;
+  height: 50px;
+  width: 50px;
+}
+.sng-name{
+  width: 35vh;
+  height: 50px;
+  /* background-color: #bdbdbd; */
+}
+.sng-logo-l{
+  background-image: url("/songs-cover/KR$NA\ -\ MAKASAM\ -\ KALAMKAAR.jpg");
+  /* background-color: #54d76e; */
+  background-size: contain;
+  margin-right: 10px;
+  height: 50px;
+  width: 50px;
+}
+.sng-name-l{
+  width: 35vh;
+  height: 50px;
+  /* background-color: #bdbdbd; */
+}
+.lib-play{
+  height: 35px;
+  width: 35px;
+  margin: auto 0px;
+  background-image: url("/images/play.svg");
+  background-size: 20px;
+  background-color: #54d76e;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.nav1 {
+  height: 55px;
+  display: flex;
+  /* border: #c0c0c0 2px solid; */
+}
+.nav-logo {
+  background-image: url("/images/logo.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: 2px;
+  width: 60px;
+}
+.nav-logo1 {
+  background-image: url("/images/logo.svg");
+  background-size: 32px;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 60px;
+}
+.nav-logo2 {
+  background-image: url("/images/search.svg");
+  background-size: 32px;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 60px;
+}
+.nav-txt-l {
+  align-content: center;
+  margin-left: 10px;
+}
+.nav-txt {
+  align-content: center;
+  margin-left: 10px;
+}
+.nav-top {
+  height: 11vh;
+  display: flex;
+  align-items: center;
+  background-color: #090909;
+  padding: 0px 18px;
+  justify-content: space-between;
+}
+.hero1 {
+  background-color:#121212;
+  height: 73vh;
+  padding: 0px 18px;
+}
+.hero2 {
+  background-color:#121212;
+  height: 73vh;
+  padding: 0px 18px;
+}
+.hide {
+  display: none;
+}
+.c1txt {
+  height: 111px;
+  font-size: 24px;
+  font-weight: 800;
+  padding-bottom: 10px;
+  align-content: end;
+}
+
+.ar1 {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  background-position: center;
+  background-position-x: 2px;
+  background-repeat: no-repeat;
+  background-image: url(/images/ar1.svg);
+  background-color: #000000;
+  margin-right: 12px;
+}
+.ar2 {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  background-position: center;
+  background-position-x: 5px;
+  background-repeat: no-repeat;
+  background-image: url(/images/ar2.svg);
+  background-color: #000000;
+}
+.input {
+  margin-left: -12px;
+  height: 39px;
+  border: none;
+  width: 24vw;
+  padding-left: 40px;
+  border-radius: 40px;
+  font-size: 16px;
+  background-color: #242424;
+  color: white;
+}
+.btn-srch {
+  height: 19px;
+  width: 19px;
+  background-image: url(/images/search.svg);
+  background-size: contain;
+  position: relative;
+  left: 19px;
+}
+.btn1 {
+  height: 39px;
+  border: none;
+  width: 90px;
+  border-radius: 40px;
+  font-size: 16px;
+  background-color: #242424;
+  color: white;
+  margin-right: 5px;
+  overflow-y: auto;
+}
+.btn2 {
+  height: 39px;
+  border: none;
+  width: 90px;
+  border-radius: 40px;
+  font-size: 16px;
+  background-color: #ffffff;
+}
+.nav-top1 {
+  display: flex;
+  height: 11vh;
+  align-items: center;
+}
+.ca1{
+  /* background-color: #555; */
+  display: flex;
+  gap:10px;
+  flex-direction: column;
+}
+.caname{
+margin: 0 auto;
+font-size: 25px;
+  font-weight: 600;
+}
+.cards-a {
+  display: flex;
+  gap: 20px;
+  height: 55vh;
+  justify-content: space-evenly;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.card-a{
+  height: 18vw;
+  width: 18vw;
+  border-radius: 50%;
+  background-size: cover;
+}
+.i1 {
+  background-image: url("/Artist/KR$NA.jpg");
+}
+.i2 {
+  background-position-y:1px ;
+  background-position-x:-23px ;
+  background-image: url(/Artist/Taylor\ Swift.jpg);
+}
+
+.cards-s{
+  background-color: #555;
+  display: flex;
+  gap: 20px;
+  height: 55vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex-wrap: wrap;
+  /* padding: 10px 10px 0px; */
+}
+.card-s{
+  background-color: #2f2d2d;
+  width: 17vw;
+  height: 36vh;
+}
+
+.bottom {
+  width: 100vw;
+  display: flex;
+  padding: 0px 20px;
+  font-family: "Noto Sans JP";
+  justify-content:space-between; /* Distribute space between child elements */
+  align-items: center; /* Align items vertically in the center */
+  /* background-color: #333; Optional: Set a background color for the bottom bar */
+  /* padding: 10px; Optional: Add some padding for better spacing */
+}
+
+.info {
+  width: 300px;
+  height: 68px;
+  /* background-color: #555; */
+  justify-content: center;
+  display: flex; /* Flex to align content within info */
+  align-items: center; /* Center align items vertically */
+}
+
+.controls {
+  /* background-color: #888; */
+  width: 48vw;
+  height: 68px;
+  display: flex;
+  flex-direction: column; /* Stack controls vertically */
+  justify-content: center;
+  align-items: center;
+  gap: 5px; /* Add gap between stacked elements */
+}
+.con1{
+  height: 43px;
+  /* background-color: #4a1a1a; */
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.con1-btn{
+  height: 35px;
+  width: 35px;
+  /* background-color: #5e5e5e; */
+}
+.shuffle{
+    background-image: url("/images/shuffle.svg");
+    background-size: 18px;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+}
+.prev{
+  background-image: url("/images/prev.svg");
+  background-size: 18px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.play{
+  background-image: url("/images/play.svg");
+  background-size: 20px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.next{
+  background-image: url("/images/next.svg");
+  background-size: 18px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.loop{
+  background-image: url("/images/loop.svg");
+  background-size: 18px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.con2{
+  height: 28px;
+  /* background-color: #4a1a1a; */
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+}
+.seekbar-h{
+  /* background-color: #54d76e; */
+}
+.seekbar{
+  height: 4.5px;
+  width: 37vw;
+  background-color: #ffffff;
+  margin: 10px 0px;
+  /* margin-right: 12px; */
+}
+.circle{
+  height: 15px;
+  width: 15px;
+  position: relative;
+  left: 0%;
+  bottom: 5px;
+  /* margin-left: 12px; */
+  border-radius: 50%;
+  background-color: #ffffff;
+  transition: left 0.3s;
+}
+.currTime{
+  position: relative;
+  bottom: 2px;
+}
+.totalTime{
+  position: relative;
+  bottom: 2px;
+}
+.mute {
+  padding-bottom: 30px;
+  width: 300px;
+  height: 68px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: #555; */
+  gap: 4px;
+  }
+.m-icn{
+  height: 30px;
+  width: 30px;
+  margin-right: 10px;
+  background-size: 25px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("/images/unmute1.svg");
+  background-color: #000000;
+}
+.m-bar-h{
+  /* background-color: #54d76e; */
+}
+.m-bar{
+  height: 4.5px;
+  width: 130px;
+  margin: 10px 0;
+  background-color: #ffffff;
+}
+.m-c{
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  position: relative;
+  bottom: 5px;
+  left: 50%;
+  background-color: #ffffff;
+  transition: 1s left;
+}
+.ham{
+  height: 24px;
+  width: 25px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url(/images/ham.svg);
+  /* background-color: #000000; */
+  margin-right: 18px;
+  display: none;
+}
+.close{
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  right: 15px;
+  top: 13px;
+  padding: 16px;
+  border-radius: 10%;
+  background-position: center;
+  background-color: #000000;
+  background-image: url("/images/close.svg");
+  background-size: cover;
+  display: none;
+}
+
+@media(max-width:1190px) { 
+  .input{
+    display: none;
+  }
+  .cards-a{
+    justify-content: space-evenly;
+    padding-top: 20px;
+  }
+}
+@media(max-width:934px){
+  .btn-srch{
+    display: none;
+  }
+  .cards-a{
+    justify-content: space-evenly;
+    padding-top: 20px;
+  }
+  .right{
+    display: none;
+  }
+  .middle{
+    width: 65vw;
+  }
+  .card-a{
+    height: 25vw;
+    width: 25vw;
+  }
+}
+@media (max-width:863px){
+  .mute{
+    position: absolute;
+    right: 0px;
+  }
+  .info{
+    position: absolute;
+    left: 0px;
+  }
+  .controls{
+    margin: auto;
+  }
+}
+@media (max-width:750px){
+  .info{
+    display: none;
+  }
+  .mute{
+    justify-content: end;
+    padding-right: 20px;
+  }
+  .ham{
+    display: block;
+  }
+  .left{
+    position: absolute;
+    left: -200%;
+    width: 325px;
+    background-color: #000000;
+    transition: all 0.3s;
+  }
+  .hero2{
+    width: 100vw;
+  }
+  .middle{
+    width: 100vw;
+  }
+  .nav-top{
+    width: 100vw;
+    padding-right: 30px;
+  }
+  .card-a{
+    height: 34vw;
+    width: 34vw;
+  }
+  .seekbar{
+    width: 70vw;
+  }
+  .close{
+    display: block;
+  }
+  
+}
+@media(max-width:615px){
+  .mute{
+    display: none;
+  }
+  .bottom{
+    padding: 0 20px;
+  }
+  .seekbar{
+    width: 50vw;
+  }
+  .container{
+    height: 85vh;
+  }
+  .hero2{
+    height: 70vh;
+  }
+}
+@media (max-width:362px){
+  .btn1{
+    display: none;
+  }
+  .cards-a{
+    flex-direction: column;
+  }
+  .card-a{
+    margin: auto;
+    height: 200px;
+    width: 200px;
+    border: 2px solid white;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Custom Scrollbar for Webkit Browsers (e.g., Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 10px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a; /* Color of the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #555; /* Color of the scrollbar handle */
+  border-radius: 6px; /* Rounded corners */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #888; /* Color when hovering over the scrollbar handle */
+}
+
+/* Custom Scrollbar for Firefox */
+html {
+  scrollbar-width: thin; /* Scrollbar thickness */
+  scrollbar-color: #555 #1a1a1a; /* Scrollbar handle and track colors */
+}
+
+/* Custom Scrollbar for Internet Explorer and Edge */
+body {
+  -ms-overflow-style: none; /* Hides default scrollbar for IE/Edge */
+}
+
+body::-webkit-scrollbar {
+  display: none; /* Hides default scrollbar for Webkit browsers */
+}
