@@ -621,6 +621,7 @@ font-size: 25px;
   }
   .cards-a{
     flex-direction: column;
+    height: 63vh;
   }
   .card-a{
     margin: auto;
