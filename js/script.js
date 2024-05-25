@@ -19,6 +19,7 @@ console.log("Spotify Clone made by Yash")
 //     return ts;
 // }
 
+
 //      functions to fetch song from github   
 async function getSongs() {
     let response = await fetch("https://api.github.com/repos/YashTheLearner/Spotify-Clone/contents/Songs");
@@ -84,21 +85,62 @@ function militosec(seconds) { // Adjusted function to work with seconds directly
 }
 
 //     updates the Song Info
-function updateSongInfo(track,songName) {
+function updateSongInfo(track, songName) {
     document.querySelector(".sng-name-l").innerHTML = track;
     document.querySelector(".cardr-txt").innerHTML = track;
     document.querySelector(".cardr-logo").style.backgroundImage = `url("songs-cover/${songName}.jpg")`
     document.querySelector(".sng-logo-l").style.backgroundImage = `url("songs-cover/${songName}.jpg")`
 }
-
+let sel;
+    let nsel = 0;
 //  plays the song
 let currSong = new Audio()
 const playMusic = (track) => {
-    // console.log("track",track)
+    console.log("track", track)
     songName = track.replace(" ", "\\ ")
     // console.log("songName",songName)
 
-    updateSongInfo(track,songName)
+    updateSongInfo(track, songName)
+
+  
+    Array.from(document.querySelector(".songs").getElementsByClassName("song")).forEach(e => {
+
+       
+        let trackName = e.firstElementChild.lastElementChild.innerText;
+        if (nsel == 1) {
+            sel.classList.remove("border");
+            nsel = 0;
+        }
+        if (trackName == track) {
+            // console.log("found")
+            // console.log(e.firstElementChild.lastElementChild)
+            sel = e;
+            // console.log(sel);
+            sel.classList.add("border");
+            
+        }
+    });
+    nsel = 1;
+
+    // Array.from(document.querySelector(".songs").getElementsByClassName("song")).forEach(e => {
+    //     e.addEventListener("click", () => {
+    //         let trackName = e.querySelector('.sng-name').innerText.trim();
+
+    //     // Update track before the comparison
+    // if(nsel==1){
+    //     sel.classList.remove("border");
+    //     nsel=0;
+    // }
+    //         console.log(trackName)
+    //         console.log(e.firstElementChild.lastElementChild.innerHTML)
+    //    if( trackName==e.firstElementChild.lastElementChild.innerHTML){
+    //     sel = e;
+    //     console.log(sel);
+    //     sel.classList.add("border"); 
+    //     nsel =1;
+    // }
+
+    //     })})
 
     track.replace("$", "%24")
     if (track.startsWith("T")) {
@@ -111,6 +153,10 @@ const playMusic = (track) => {
     // console.log(track);
     currSong.src = track;
     document.querySelector(".play").style.backgroundImage = `url("images/pause.svg")`
+
+
+    document.querySelector(".circle").style.left = "0%";
+
     currSong.play();
 }
 
@@ -167,20 +213,17 @@ const playMusic = (track) => {
             }
             i = 1;
         }
-        
+
         //   select and plays the selected song from library   
-        let sel;
-        function selected()  {
+
+        function selected() {
             Array.from(document.querySelector(".songs").getElementsByClassName("song")).forEach(e => {
                 e.addEventListener("click", () => {
                     track = e.firstElementChild.lastElementChild.innerHTML;
-                    if (sel != e && sel != undefined) { sel.classList.toggle("border"); }
-                    e.classList.toggle("border");
-                    sel = e;
 
                     // console.log(e)
                     playMusic(track)
-                    document.querySelector(".circle").style.left = "0%";
+
 
                 })
             });
@@ -277,24 +320,24 @@ const playMusic = (track) => {
 
         //         next and previous
         document.querySelector(".prev").addEventListener("click", () => {
-            let index = songs.indexOf(currSong.src.replace("https://sunlo.vercel.app","https://raw.githubusercontent.com/YashTheLearner/Spotify-Clone/main").replace("$","%24").trim());
+            let index = songs.indexOf(currSong.src.replace("https://sunlo.vercel.app", "https://raw.githubusercontent.com/YashTheLearner/Spotify-Clone/main").replace("$", "%24").trim());
 
             if (index > 0) {
                 currSong.pause();
                 track = songs[index - 1]
-                track = track.split("s/")[1].replace(".mp3","")
+                track = track.split("s/")[1].replace(".mp3", "")
                 track = decodeURIComponent(track);
-                
+
                 playMusic(track)
             }
         })
         document.querySelector(".next").addEventListener("click", () => {
-            let index = songs.indexOf(currSong.src.replace("https://sunlo.vercel.app","https://raw.githubusercontent.com/YashTheLearner/Spotify-Clone/main").replace("$","%24").trim());
+            let index = songs.indexOf(currSong.src.replace("https://sunlo.vercel.app", "https://raw.githubusercontent.com/YashTheLearner/Spotify-Clone/main").replace("$", "%24").trim());
 
             if (index < songs.length - 1) {
                 currSong.pause();
                 track = songs[index + 1]
-                track = track.split("s/")[1].replace(".mp3","")
+                track = track.split("s/")[1].replace(".mp3", "")
                 track = decodeURIComponent(track);
                 playMusic(track)
             }
