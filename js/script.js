@@ -293,6 +293,7 @@ const playMusic = (track) => {
 
             if (index < songs.length - 1) {
                 currSong.pause();
+                track = songs[index + 1]
                 track = track.split("s/")[1].replace(".mp3","")
                 track = decodeURIComponent(track);
                 playMusic(track)
