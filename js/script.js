@@ -108,7 +108,7 @@ const playMusic = (track) => {
        
         let trackName = e.firstElementChild.lastElementChild.innerText;
         if (nsel == 1) {
-            sel.classList.remove("border");
+            sel.classList.remove("selected");
             nsel = 0;
         }
         if (trackName == track) {
@@ -116,7 +116,7 @@ const playMusic = (track) => {
             // console.log(e.firstElementChild.lastElementChild)
             sel = e;
             // console.log(sel);
-            sel.classList.add("border");
+            sel.classList.add("selected");
             
         }
     });
