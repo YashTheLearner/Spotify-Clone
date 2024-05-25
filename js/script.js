@@ -281,7 +281,7 @@ const playMusic = (track) => {
             console.log("currSong",currSong)
             console.log("currSong.src",currSong.src)
             console.log("songs",songs)
-            console.log("ts",ts)
+            console.log("tarr",tarr)
             // let index = songs.indexOf(currSong.src);
             // console.log(index)
             // if (index > 0) {
