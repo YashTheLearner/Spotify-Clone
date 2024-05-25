@@ -644,6 +644,20 @@ font-size: 25px;
   .hero2{
     height: 70vh;
   }
+  .controls{
+    position: relative;
+    bottom: 30px;
+    gap: 20px;
+  }
+  .middle{
+    height: 76vh;
+  }
+  .hero2{
+    height: 64vh;
+  }
+  .cards-a{
+    height: 48.2vh;
+  }
 }
 
 @media (max-width:419px){
@@ -660,7 +674,7 @@ font-size: 25px;
   }
   .cards-a{
     flex-direction: column;
-    height: 63vh;
+    height: 56vh;
   }
   .card-a{
     margin: auto;
