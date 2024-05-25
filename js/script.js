@@ -277,33 +277,27 @@ const playMusic = (track) => {
 
         //         next and previous
         document.querySelector(".prev").addEventListener("click", () => {
-            console.log("track",track)
-            console.log("currSong",currSong)
-            console.log("currSong.src",currSong.src)
-            console.log("songs",songs)
-            console.log("tarr",tarr)
-            console.log(currSong.src.replace("https://sunlo.vercel.app","https://raw.githubusercontent.com/YashTheLearner/Spotify-Clone/main").replace("$","%24"))
             let index = songs.indexOf(currSong.src.replace("https://sunlo.vercel.app","https://raw.githubusercontent.com/YashTheLearner/Spotify-Clone/main").replace("$","%24").trim());
-            console.log(index)
-            // if (index > 0) {
-            //     currSong.pause();
-            //     track = songs[index - 1]
-            //     // track = track.split("s/")[1].replace(".mp3","")
-            //     console.log(track)
-            //     // playMusic(track)
-            // }
+
+            if (index > 0) {
+                currSong.pause();
+                track = songs[index - 1]
+                track = track.split("s/")[1].replace(".mp3","")
+                console.log(track)
+                playMusic(track)
+            }
         })
-        // document.querySelector(".next").addEventListener("click", () => {
+        document.querySelector(".next").addEventListener("click", () => {
+            let index = songs.indexOf(currSong.src.replace("https://sunlo.vercel.app","https://raw.githubusercontent.com/YashTheLearner/Spotify-Clone/main").replace("$","%24").trim());
 
-        //     let index = songs.indexOf(currSong.src)
-        //     if (index < songs.length - 1) {
-        //         currSong.pause();
-        //         currSong.src = songs[index + 1]
-        //         track = track.split("s/")[1].replace(".mp3","")
-        //         // playMusic(track)
-        //     }
+            if (index < songs.length - 1) {
+                currSong.pause();
+                currSong.src = songs[index + 1]
+                track = track.split("s/")[1].replace(".mp3","")
+                // playMusic(track)
+            }
 
-        // })
+        })
 
 
 
