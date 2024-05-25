@@ -282,6 +282,7 @@ const playMusic = (track) => {
             console.log("currSong.src",currSong.src)
             console.log("songs",songs)
             console.log("tarr",tarr)
+            console.log(currSong.src.replace("https://sunlo.vercel.app","https://raw.githubusercontent.com/YashTheLearner/Spotify-Clone/main").replace("$","%24"))
             let index = songs.indexOf(currSong.src.replace("https://sunlo.vercel.app","https://raw.githubusercontent.com/YashTheLearner/Spotify-Clone/main").replace("$","%24"));
             console.log(index)
             // if (index > 0) {
