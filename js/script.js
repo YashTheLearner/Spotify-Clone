@@ -1,9 +1,10 @@
+console.log("Spotify Clone made by Yash")
 
+//         Function to fetch song locally
 
-// async function getSongs() {
-//     let a = await fetch("https://github.com/YashTheLearner/Spotify-Clone/tree/main/Songs", { mode: 'no-cors' });
+// async function getTs() {
+//     let a = await fetch(`/${folderName}/`);
 //     let response = await a.text();
-//     console.log(response);
 //     let div = document.createElement("div");
 //     div.innerHTML = response;
 //     let as = div.getElementsByTagName("a");
@@ -11,12 +12,14 @@
 //     for (let index = 0; index < as.length; index++) {
 //         const element = as[index];
 //         if (element.href.endsWith(".mp3")) {
-//             songs.push(element.href)
+//             ts.push(element.href)
 //         }
 //     }
 //     console.log(songs)
-//     return songs;
+//     return ts;
 // }
+
+//      functions to fetch song from github   
 async function getSongs() {
     let response = await fetch("https://api.github.com/repos/YashTheLearner/Spotify-Clone/contents/Songs");
     let data = await response.json();
@@ -27,48 +30,20 @@ async function getSongs() {
     return songs;
 }
 
-async function getMySongs() {
-    let response = await fetch("https://drive.google.com/drive/folders/1VTmU3DVtuMABMewj9jvhpPn0IKttfQmK?usp=sharing");
-    let data = await response.json();
-    let mysongs = data
-        .filter(item => item.type === 'file' && item.name.endsWith('.mp3'))
-        .map(item => item.download_url);
-    // console.log(mysongs);
-    return mysongs;
-}
-
-// async function getTs() {
-//     let a = await fetch("/ts/");
-//     let response = await a.text();
-//     let div = document.createElement("div");
-//     div.innerHTML = response;
-//     let as = div.getElementsByTagName("a");
-//     let ts = [];
-//     for (let index = 0; index < as.length; index++) {
-//         const element = as[index];
-//         if (element.href.endsWith(".mp3")) {
-//             ts.push(element.href)
-//         }
-//     }
-//     console.log(ts)
-//     return ts;
-// }
-
 async function getTs() {
     let response = await fetch("https://api.github.com/repos/YashTheLearner/Spotify-Clone/contents/ts");
     let data = await response.json();
     let ts = data
         .filter(item => item.type === 'file' && item.name.endsWith('.mp3'))
         .map(item => item.download_url);
-    console.log(ts);
+    // console.log(ts);
     return ts;
 }
 
-
+//      function to get song cover
 async function getCover() {
     let a = await fetch("/songs-cover/");
     let response = await a.text();
-    // console.log(response)
     let div = document.createElement("div");
     div.innerHTML = response;
     let as = div.getElementsByTagName("a");
@@ -79,44 +54,23 @@ async function getCover() {
             songsCover.push(element.href)
         }
     }
-    console.log(songsCover)
+    // console.log(songsCover)
     return songsCover;
 }
 
-let currSong = new Audio()
-const playMusic = (track) => {
-    document.querySelector(".sng-name-l").innerHTML = track;
-    document.querySelector(".cardr-txt").innerHTML = track;
-    // console.log(track)
-    songName = track.replace("mp3", "jpg").replaceAll(" ", "\\ ")
-    console.log(songName)
-    document.querySelector(".cardr-logo").style.backgroundImage = `url("songs-cover/${songName}.jpg")`
-    document.querySelector(".sng-logo-l").style.backgroundImage = `url("songs-cover/${songName}.jpg")`
-    track.replace("$", "%24")
-    if(track.startsWith("T")){
-        track = "/ts/" + track + ".mp3"
-    }
-    else{
-        track = "/Songs/" + track + ".mp3"
-    }
-
-    
-    console.log(track);
-    currSong.src = track;
-    document.querySelector(".play").style.backgroundImage = `url("images/pause.svg")`
-    currSong.play();
-}
-
+// for responsive design
 let ham = document.querySelector(".ham")
-ham.addEventListener("click",()=>{
+ham.addEventListener("click", () => {
     document.querySelector(".left").style.left = 0;
 })
 
 let close = document.querySelector(".close")
-close.addEventListener("click",()=>{
+close.addEventListener("click", () => {
     document.querySelector(".left").style.left = "-200%";
 })
 
+
+//    function to format the time to 00:00 format   
 function militosec(seconds) { // Adjusted function to work with seconds directly
     let totalSeconds = Math.floor(seconds);
 
@@ -129,28 +83,51 @@ function militosec(seconds) { // Adjusted function to work with seconds directly
     return `${formattedMinutes}:${formattedSeconds}`;
 }
 
+//     updates the Song Info
+function updateSongInfo(track,songName) {
+    document.querySelector(".sng-name-l").innerHTML = track;
+    document.querySelector(".cardr-txt").innerHTML = track;
+    document.querySelector(".cardr-logo").style.backgroundImage = `url("songs-cover/${songName}.jpg")`
+    document.querySelector(".sng-logo-l").style.backgroundImage = `url("songs-cover/${songName}.jpg")`
+}
+
+//  plays the song
+let currSong = new Audio()
+const playMusic = (track) => {
+    // console.log("track",track)
+    songName = track.replace(" ", "\\ ")
+    // console.log("songName",songName)
+
+    updateSongInfo(track,songName)
+
+    track.replace("$", "%24")
+    if (track.startsWith("T")) {
+        track = "/ts/" + track + ".mp3"
+    }
+    else {
+        track = "/Songs/" + track + ".mp3"
+    }
+    // console.log("track",track)
+    // console.log(track);
+    currSong.src = track;
+    document.querySelector(".play").style.backgroundImage = `url("images/pause.svg")`
+    currSong.play();
+}
+
+
 (
     async function () {
         let songs = await getSongs();
-        // let mysongs = await getMySongs();
-        // console.log(mysongs)
         let cover = await getCover();
         let tarr = await getTs();
-        // console.log(Taylor)
-        // console.log(cover[0])
 
-        // document.querySelector(".prev").addEventListener("click",()=>{
-        //     currSong.pause();
-        //     let index = songs.indexOf(currSong.src.split("/").slice(-1)[0])
-        //     console.log(index, currSong.src.split("/") )
-        // console.log(index, currSong.src.split("/").slice(-1)[0] )
-        // })
-
-
+        // set sample song //
         currSong = new Audio(songs[1]);
 
         let sngs = document.querySelector(".songs")
 
+
+        //   generates the library dynamically
         let i = 1;
         function krsna() {
 
@@ -169,7 +146,7 @@ function militosec(seconds) { // Adjusted function to work with seconds directly
                 url.style.backgroundImage = `url("songs-cover/${songName}")`
                 i++;
             }
-            i=1;
+            i = 1;
         }
         function taylor() {
 
@@ -188,25 +165,26 @@ function militosec(seconds) { // Adjusted function to work with seconds directly
                 url.style.backgroundImage = `url("songs-cover/${songName}")`
                 i++;
             }
-            i=1;
+            i = 1;
         }
-
+        
+        //   select and plays the selected song from library   
         let sel;
-        let select =()=>{
-        Array.from(document.querySelector(".songs").getElementsByClassName("song")).forEach(e => {
-            e.addEventListener("click", () => {
-                track = e.firstElementChild.lastElementChild.innerHTML;
-                if(sel!=e && sel!=undefined){sel.classList.toggle("border");}
-                e.classList.toggle("border");
-                sel = e;
-                // if(song.firstElementChild.lastElementChild.innerHTML==track)
-                console.log(e)
-                playMusic(track)
-                document.querySelector(".circle").style.left = "0%";
-                document.querySelector(".info").firstElementChild.lastElementChild.innerHTML = track;
-            })
-        });
-    }
+        function selected()  {
+            Array.from(document.querySelector(".songs").getElementsByClassName("song")).forEach(e => {
+                e.addEventListener("click", () => {
+                    track = e.firstElementChild.lastElementChild.innerHTML;
+                    if (sel != e && sel != undefined) { sel.classList.toggle("border"); }
+                    e.classList.toggle("border");
+                    sel = e;
+
+                    // console.log(e)
+                    playMusic(track)
+                    document.querySelector(".circle").style.left = "0%";
+
+                })
+            });
+        }
 
 
         //    Play - Pause
@@ -222,27 +200,27 @@ function militosec(seconds) { // Adjusted function to work with seconds directly
             }
         })
 
-
+        //     updates current time and duration
         currSong.addEventListener("timeupdate", () => {
             let currTime = militosec(currSong.currentTime);
             document.querySelector(".currTime").innerText = currTime;
             if (!isNaN(currSong.duration)) {
                 let Duration = militosec(currSong.duration);
-           
-            document.querySelector(".totalTime").innerText = Duration;
-             } document.querySelector(".circle").style.left = (currSong.currentTime/currSong.duration)*100 + "%";
+
+                document.querySelector(".totalTime").innerText = Duration;
+            } document.querySelector(".circle").style.left = (currSong.currentTime / currSong.duration) * 100 + "%";
         })
 
-        document.querySelector(".loop").addEventListener("click",()=>{
-            currSong.addEventListener("ended",()=>{
-
+        //     loop  function
+        document.querySelector(".loop").addEventListener("click", () => {
+            currSong.addEventListener("ended", () => {
                 currSong.play();
                 document.querySelector(".circle").style.left = "0%";
-            }) 
+            })
 
         })
 
-
+        //     seekbar
         document.querySelector(".seekbar-h").addEventListener("click", e => {
             let percent = (e.offsetX / e.target.getBoundingClientRect().width) * 100;
             // console.log(percent)
@@ -258,6 +236,10 @@ function militosec(seconds) { // Adjusted function to work with seconds directly
             currSong.volume = percent / 100;
         })
         percent = currSong.volume;
+
+
+
+        //       mute
         document.querySelector(".m-icn").addEventListener("click", () => {
             let logo = document.querySelector(".m-icn")
 
@@ -275,21 +257,51 @@ function militosec(seconds) { // Adjusted function to work with seconds directly
             }
         })
 
+
+        //      choose Artist
         document.querySelector(".i1").addEventListener("click", () => {
             document.querySelector(".songs").innerHTML = "";
-                krsna();
-                document.querySelector(".left").style.left = 0;
-                select();
-            
+            krsna();
+            document.querySelector(".left").style.left = 0;
+            selected();
+
         }
         )
         document.querySelector(".i2").addEventListener("click", () => {
             document.querySelector(".songs").innerHTML = "";
             taylor();
             document.querySelector(".left").style.left = 0;
-            select();
+            selected();
         }
         )
+
+        //         next and previous
+        document.querySelector(".prev").addEventListener("click", () => {
+            console.log("track",track)
+            console.log("currSong",currSong)
+            console.log("currSong.src",currSong.src)
+            console.log("songs",songs)
+            // let index = songs.indexOf(currSong.src);
+            console.log(index)
+            // if (index > 0) {
+            //     currSong.pause();
+            //     track = songs[index - 1]
+            //     // track = track.split("s/")[1].replace(".mp3","")
+            //     console.log(track)
+            //     // playMusic(track)
+            // }
+        })
+        // document.querySelector(".next").addEventListener("click", () => {
+
+        //     let index = songs.indexOf(currSong.src)
+        //     if (index < songs.length - 1) {
+        //         currSong.pause();
+        //         currSong.src = songs[index + 1]
+        //         track = track.split("s/")[1].replace(".mp3","")
+        //         // playMusic(track)
+        //     }
+
+        // })
 
 
 
