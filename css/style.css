@@ -431,7 +431,7 @@ font-size: 25px;
   width: 15px;
   position: relative;
   left: 0%;
-  bottom: 5px;
+  bottom: 14.5px;
   /* margin-left: 12px; */
   border-radius: 50%;
   background-color: #ffffff;
@@ -479,10 +479,10 @@ font-size: 25px;
   width: 15px;
   border-radius: 50%;
   position: relative;
-  bottom: 5px;
+  bottom: 14px;
   left: 50%;
   background-color: #ffffff;
-  transition: 1s left;
+  transition: 0.3s left;
 }
 .ham{
   height: 24px;
@@ -512,6 +512,39 @@ font-size: 25px;
   background-color: #2f2d2d;
   border-radius: 20px;
 }
+.seekbar-g{
+  position: relative;
+  transition: left 0.3s;
+  background-color: #1DB954;
+  height: 4.5px;
+  bottom: 4.5px;
+  width: 0%;
+  transition: 1s left;
+}
+.seekbar-hg{
+  position: relative;
+  /* background-color: #cae132; */
+  height: 4.5px;
+  width: 100%;
+  z-index: 5;
+}
+.m-bar-g{
+  position: relative;
+  background-color: #1DB954;
+  height: 4.5px;
+  bottom: 4.5px;
+  width: 50%;
+  transition: 1s left;
+}
+.m-bar-hg{
+  position: relative;
+  /* background-color: #cae132; */
+  height: 4.5px;
+  width: 100%;
+  z-index: 5;
+}
+
+
 
 @media(max-width:1190px) { 
   .input{
@@ -588,6 +621,7 @@ font-size: 25px;
   }
   .seekbar{
     width: 70vw;
+    position: absolute;
   }
   .close{
     display: block;

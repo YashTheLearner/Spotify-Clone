@@ -248,6 +248,11 @@ const playMusic = (track) => {
             let currTime = militosec(currSong.currentTime);
             document.querySelector(".currTime").innerText = currTime;
             if (!isNaN(currSong.duration)) {
+
+                
+                document.querySelector(".seekbar-g").style.width = (currSong.currentTime/currSong.duration)*100 + "%";
+
+
                 let Duration = militosec(currSong.duration);
 
                 document.querySelector(".totalTime").innerText = Duration;
@@ -255,20 +260,32 @@ const playMusic = (track) => {
         })
 
         //     loop  function
-        document.querySelector(".loop").addEventListener("click", () => {
-            currSong.addEventListener("ended", () => {
-                currSong.play();
-                document.querySelector(".circle").style.left = "0%";
-            })
+        let isLooping = false;
 
-        })
+function toggleLoop() {
+    if (!isLooping) {
+        currSong.loop = true; // Enable looping
+        document.querySelector(".loop").style.backgroundImage = `url("/images/loop-s.svg")`; // Change background image
+    } else {
+        currSong.loop = false; // Disable looping
+        document.querySelector(".loop").style.backgroundImage = `url("/images/loop.svg")`; // Change background image
+    }
+    isLooping = !isLooping; // Toggle loop state
+}
+
+document.querySelector(".loop").addEventListener("click", toggleLoop);
+
 
         //     seekbar
         document.querySelector(".seekbar-h").addEventListener("click", e => {
+            // console.log(e)
+            // console.log(e.offsetX , e.target.getBoundingClientRect().width , (e.offsetX / e.target.getBoundingClientRect().width) * 100 );
             let percent = (e.offsetX / e.target.getBoundingClientRect().width) * 100;
             // console.log(percent)
             document.querySelector(".circle").style.left = percent + "%";
             currSong.currentTime = ((currSong.duration) * percent) / 100
+            document.querySelector(".seekbar-g").style.width = percent + "%";
+
         })
         currSong.volume = 0.5
         document.querySelector(".m-bar-h").addEventListener("click", e => {
@@ -276,6 +293,7 @@ const playMusic = (track) => {
             console.log(percent)
             document.querySelector(".m-c").style.left = percent + "%";
             // console.log(percent);
+            document.querySelector(".m-bar-g").style.width = percent + "%";
             currSong.volume = percent / 100;
         })
         percent = currSong.volume;
@@ -291,11 +309,13 @@ const playMusic = (track) => {
                 // console.log(currSong.volume)
                 let a = currSong.volume * 100
                 document.querySelector(".m-c").style.left = a + "%";
+                document.querySelector(".m-bar-g").style.width = a + "%";
                 logo.style.backgroundImage = `url("images/unmute1.svg")`
             }
             else {
                 currSong.muted = true;
                 document.querySelector(".m-c").style.left = "0%";
+                document.querySelector(".m-bar-g").style.width = "0%";
                 logo.style.backgroundImage = `url("images/mute.svg")`
             }
         })
