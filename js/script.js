@@ -283,6 +283,7 @@ const playMusic = (track) => {
                 currSong.pause();
                 track = songs[index - 1]
                 track = track.split("s/")[1].replace(".mp3","")
+                track = decodeURIComponent(track);
                 console.log(track)
                 playMusic(track)
             }
@@ -294,7 +295,8 @@ const playMusic = (track) => {
                 currSong.pause();
                 currSong.src = songs[index + 1]
                 track = track.split("s/")[1].replace(".mp3","")
-                // playMusic(track)
+                track = decodeURIComponent(track);
+                playMusic(track)
             }
 
         })
