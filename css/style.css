@@ -621,8 +621,8 @@ font-size: 25px;
   }
   .seekbar{
     width: 70vw;
-    position: absolute;
   }
+
   .close{
     display: block;
   }
