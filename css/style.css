@@ -658,6 +658,12 @@ font-size: 25px;
   .cards-a{
     height: 48.2vh;
   }
+  .lib{
+    height: 51vh;
+  }
+  .songs{
+    height: 43.6vh;
+  }
 }
 
 @media (max-width:419px){
