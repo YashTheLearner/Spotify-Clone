@@ -78,7 +78,7 @@ body {
   padding-top: 3px;
   display: flex;
   flex-direction: column;
-  flex-gro:1;
+  flex-grow:1;
 }
 .lib1 {
   display: flex;
