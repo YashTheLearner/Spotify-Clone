@@ -76,6 +76,9 @@ body {
   height: 58vh;
   border-radius: 10px;
   padding-top: 3px;
+  display: flex;
+  flex-direction: column;
+  flex-gro:1;
 }
 .lib1 {
   display: flex;
@@ -96,6 +99,7 @@ body {
 .songs{
   height: 46vh;
   overflow-y: auto;
+  flex-grow: 1;
 }
 .song{
   display: flex;
