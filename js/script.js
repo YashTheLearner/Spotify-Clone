@@ -324,7 +324,14 @@ document.querySelector(".loop").addEventListener("click", toggleLoop);
         document.querySelector(".prev").addEventListener("click", () => {
             console.log(currSong.src)
             console.log(currSong.src.replace("https://sunlo.vercel.app","https://raw.githubusercontent.com/YashTheLearner/SunLo/main").replace("$","%24").trim())
-            let index = songs.indexOf(currSong.src.replace("https://sunlo.vercel.app","https://raw.githubusercontent.com/YashTheLearner/SunLo/main").replace("$","%24").trim())
+            let index;
+            if(currSong.src.includes(ts)){
+                index = tarr.indexOf(currSong.src.replace("https://sunlo.vercel.app","https://raw.githubusercontent.com/YashTheLearner/SunLo/main").replace("$","%24").trim());
+            }
+            else{
+                index = songs.indexOf(currSong.src.replace("https://sunlo.vercel.app","https://raw.githubusercontent.com/YashTheLearner/SunLo/main").replace("$","%24").trim());
+            }
+           
             console.log(index);
             
             if (index > 0) {
@@ -339,7 +346,14 @@ document.querySelector(".loop").addEventListener("click", toggleLoop);
         document.querySelector(".next").addEventListener("click", () => {
             console.log(currSong.src)
             console.log(currSong.src.replace("https://sunlo.vercel.app","https://raw.githubusercontent.com/YashTheLearner/SunLo/main").replace("$","%24").trim())
-            let index = songs.indexOf(currSong.src.replace("https://sunlo.vercel.app","https://raw.githubusercontent.com/YashTheLearner/SunLo/main").replace("$","%24").trim())
+            let index;
+            if(currSong.src.includes(ts)){
+                index = tarr.indexOf(currSong.src.replace("https://sunlo.vercel.app","https://raw.githubusercontent.com/YashTheLearner/SunLo/main").replace("$","%24").trim());
+            }
+            else{
+                index = songs.indexOf(currSong.src.replace("https://sunlo.vercel.app","https://raw.githubusercontent.com/YashTheLearner/SunLo/main").replace("$","%24").trim());
+            }
+           
             console.log(index);
             
             if (index < songs.length - 1) {
