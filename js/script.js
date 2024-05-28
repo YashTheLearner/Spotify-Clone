@@ -343,7 +343,8 @@ document.querySelector(".loop").addEventListener("click", toggleLoop);
         console.log(currSong.src)
         //         next and previous
         document.querySelector(".prev").addEventListener("click", () => {
-            let index = songs.indexOf(currSong.src.replace("https://sunlo.vercel.app", "https://raw.githubusercontent.com/YashTheLearner/Spotify-Clone/main").replace("$", "%24").trim());
+            let index = songs.indexOf(currSong.src)
+            console.log(index);
             
             // if (index > 0) {
             //     currSong.pause();
