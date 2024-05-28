@@ -324,7 +324,7 @@ document.querySelector(".loop").addEventListener("click", toggleLoop);
         document.querySelector(".prev").addEventListener("click", () => {
             console.log(currSong.src)
             console.log(currSong.src.replace("https://sunlo.vercel.app","https://raw.githubusercontent.com/YashTheLearner/SunLo/main").replace("$","%24").trim())
-            let index = songs.indexOf(currSong.src.replace("https://sunlo.vercel.app","https://raw.githubusercontent.com/YashTheLearner/SunLo/main").replace("$","%24"))
+            let index = songs.indexOf(currSong.src.replace("https://sunlo.vercel.app","https://raw.githubusercontent.com/YashTheLearner/SunLo/main").replace("$","%24").trim())
             console.log(index);
             
             // if (index > 0) {
