@@ -96,7 +96,7 @@ let sel;
 //  plays the song
 let currSong = new Audio()
 const playMusic = (track) => {
-    console.log("track", track)
+    // console.log("track", track)
     songName = track.replace(" ", "\\ ")
     // console.log("songName",songName)
 
@@ -128,7 +128,7 @@ const playMusic = (track) => {
     else {
         track = "/Songs/" + track + ".mp3"
     }
-    console.log("track",track)
+    // console.log("track",track)
     // console.log(track);
     currSong.src = track;
     document.querySelector(".play").style.backgroundImage = `url("images/pause.svg")`
