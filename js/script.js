@@ -325,7 +325,7 @@ document.querySelector(".loop").addEventListener("click", toggleLoop);
             console.log(currSong.src)
             console.log(currSong.src.replace("https://sunlo.vercel.app","https://raw.githubusercontent.com/YashTheLearner/SunLo/main").replace("$","%24").trim())
             let index;
-            if(currSong.src.includes(ts)){
+            if(currSong.src.includes('ts')){
                 index = tarr.indexOf(currSong.src.replace("https://sunlo.vercel.app","https://raw.githubusercontent.com/YashTheLearner/SunLo/main").replace("$","%24").trim());
             }
             else{
@@ -344,10 +344,10 @@ document.querySelector(".loop").addEventListener("click", toggleLoop);
             }
         })
         document.querySelector(".next").addEventListener("click", () => {
-            console.log(currSong.src)
+           console.log(currSong.src)
             console.log(currSong.src.replace("https://sunlo.vercel.app","https://raw.githubusercontent.com/YashTheLearner/SunLo/main").replace("$","%24").trim())
             let index;
-            if(currSong.src.includes(ts)){
+            if(currSong.src.includes('ts')){
                 index = tarr.indexOf(currSong.src.replace("https://sunlo.vercel.app","https://raw.githubusercontent.com/YashTheLearner/SunLo/main").replace("$","%24").trim());
             }
             else{
