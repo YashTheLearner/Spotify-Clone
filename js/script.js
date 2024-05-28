@@ -324,6 +324,7 @@ document.querySelector(".loop").addEventListener("click", toggleLoop);
         //         next and previous
         document.querySelector(".prev").addEventListener("click", () => {
             console.log(currSong.src)
+            console.log(currSong.src.replace("https://sunlo.vercel.app","https://raw.githubusercontent.com/YashTheLearner/SunLo/main"))
             let index = songs.indexOf(currSong.src.replace("https://sunlo.vercel.app","https://raw.githubusercontent.com/YashTheLearner/SunLo/main"))
             console.log(index);
             
