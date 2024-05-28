@@ -322,7 +322,7 @@ document.querySelector(".loop").addEventListener("click", toggleLoop);
         console.log(tarr)
         //         next and previous
         document.querySelector(".prev").addEventListener("click", () => {
-            console.log(currSong.src)
+            console.log(typeof currSong.src)
             console.log(currSong.src.replace("https://sunlo.vercel.app","https://raw.githubusercontent.com/YashTheLearner/SunLo/main").replace("$","%24").trim())
             let index;
             if(currSong.src.includes('ts')){
@@ -344,7 +344,7 @@ document.querySelector(".loop").addEventListener("click", toggleLoop);
             }
         })
         document.querySelector(".next").addEventListener("click", () => {
-           console.log(currSong.src)
+           console.log( typeof currSong.src)
             console.log(currSong.src.replace("https://sunlo.vercel.app","https://raw.githubusercontent.com/YashTheLearner/SunLo/main").replace("$","%24").trim())
             let index;
             if(currSong.src.includes('ts')){
