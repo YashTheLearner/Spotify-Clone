@@ -324,9 +324,8 @@ document.querySelector(".loop").addEventListener("click", toggleLoop);
         //         next and previous
         document.querySelector(".prev").addEventListener("click", () => {
             console.log(currSong.src)
-            // let index = songs.indexOf(currSong.src)
-
-            // console.log(index);
+            let index = songs.indexOf(currSong.src.replace("https://sunlo.vercel.app","https://raw.githubusercontent.com/YashTheLearner/SunLo/main"))
+            console.log(index);
             
             // if (index > 0) {
             //     currSong.pause();
@@ -339,8 +338,8 @@ document.querySelector(".loop").addEventListener("click", toggleLoop);
         })
         document.querySelector(".next").addEventListener("click", () => {
             console.log(currSong.src)
-            // let index = songs.indexOf(currSong.src)
-            // console.log(index);
+            let index = songs.indexOf(currSong.src.replace("https://sunlo.vercel.app","https://raw.githubusercontent.com/YashTheLearner/SunLo/main"))
+            console.log(index);
             // let index = songs.indexOf(currSong.src.replace("https://sunlo.vercel.app", "https://raw.githubusercontent.com/YashTheLearner/Spotify-Clone/main").replace("$", "%24").trim());
 
             // if (index < songs.length - 1) {
