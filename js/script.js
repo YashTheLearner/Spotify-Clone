@@ -327,29 +327,28 @@ document.querySelector(".loop").addEventListener("click", toggleLoop);
             let index = songs.indexOf(currSong.src.replace("https://sunlo.vercel.app","https://raw.githubusercontent.com/YashTheLearner/SunLo/main").replace("$","%24").trim())
             console.log(index);
             
-            // if (index > 0) {
-            //     currSong.pause();
-            //     track = songs[index - 1]
-            //     track = track.split("s/")[1].replace(".mp3", "")
-            //     track = decodeURIComponent(track);
+            if (index > 0) {
+                currSong.pause();
+                track = songs[index - 1]
+                track = track.split("s/")[1].replace(".mp3", "")
+                track = decodeURIComponent(track);
 
-            //     playMusic(track)
-            // }
+                playMusic(track)
+            }
         })
         document.querySelector(".next").addEventListener("click", () => {
             console.log(currSong.src)
             console.log(currSong.src.replace("https://sunlo.vercel.app","https://raw.githubusercontent.com/YashTheLearner/SunLo/main").replace("$","%24").trim())
             let index = songs.indexOf(currSong.src.replace("https://sunlo.vercel.app","https://raw.githubusercontent.com/YashTheLearner/SunLo/main").replace("$","%24").trim())
             console.log(index);
-            // let index = songs.indexOf(currSong.src.replace("https://sunlo.vercel.app", "https://raw.githubusercontent.com/YashTheLearner/Spotify-Clone/main").replace("$", "%24").trim());
-
-            // if (index < songs.length - 1) {
-            //     currSong.pause();
-            //     track = songs[index + 1]
-            //     track = track.split("s/")[1].replace(".mp3", "")
-            //     track = decodeURIComponent(track);
-            //     playMusic(track)
-            // }
+            
+            if (index < songs.length - 1) {
+                currSong.pause();
+                track = songs[index + 1]
+                track = track.split("s/")[1].replace(".mp3", "")
+                track = decodeURIComponent(track);
+                playMusic(track)
+            }
 
         })
 
