@@ -319,6 +319,7 @@ document.querySelector(".loop").addEventListener("click", toggleLoop);
 
         console.log(songs)
         console.log(songs.length)
+        console.log(tarr)
         console.log(currSong.src)
         //         next and previous
         document.querySelector(".prev").addEventListener("click", () => {
