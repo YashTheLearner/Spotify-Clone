@@ -320,11 +320,10 @@ document.querySelector(".loop").addEventListener("click", toggleLoop);
         console.log(songs)
         console.log(songs.length)
         console.log(tarr)
-        console.log(currSong.src)
         //         next and previous
         document.querySelector(".prev").addEventListener("click", () => {
             console.log(currSong.src)
-            console.log(currSong.src.replace("https://sunlo.vercel.app","https://raw.githubusercontent.com/YashTheLearner/SunLo/main"))
+            console.log(currSong.src.replace("https://sunlo.vercel.app","https://raw.githubusercontent.com/YashTheLearner/SunLo/main").replace("$","%24"))
             let index = songs.indexOf(currSong.src.replace("https://sunlo.vercel.app","https://raw.githubusercontent.com/YashTheLearner/SunLo/main"))
             console.log(index);
             
@@ -339,6 +338,7 @@ document.querySelector(".loop").addEventListener("click", toggleLoop);
         })
         document.querySelector(".next").addEventListener("click", () => {
             console.log(currSong.src)
+            console.log(currSong.src.replace("https://sunlo.vercel.app","https://raw.githubusercontent.com/YashTheLearner/SunLo/main"))
             let index = songs.indexOf(currSong.src.replace("https://sunlo.vercel.app","https://raw.githubusercontent.com/YashTheLearner/SunLo/main"))
             console.log(index);
             // let index = songs.indexOf(currSong.src.replace("https://sunlo.vercel.app", "https://raw.githubusercontent.com/YashTheLearner/Spotify-Clone/main").replace("$", "%24").trim());
