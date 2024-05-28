@@ -349,19 +349,24 @@ document.querySelector(".loop").addEventListener("click", toggleLoop);
             let index;
             if(currSong.src.includes('ts')){
                 index = tarr.indexOf(currSong.src.replace("https://sunlo.vercel.app","https://raw.githubusercontent.com/YashTheLearner/SunLo/main").replace("$","%24").trim());
+                if (index < songs.length - 1) {
+                    currSong.pause();
+                    track = tarr[index + 1]
+                    track = track.split("s/")[1].replace(".mp3", "")
+                    track = decodeURIComponent(track);
+                    playMusic(track)
+                }
             }
             else{
                 index = songs.indexOf(currSong.src.replace("https://sunlo.vercel.app","https://raw.githubusercontent.com/YashTheLearner/SunLo/main").replace("$","%24").trim());
-            }
-           
-            console.log(index);
-            
-            if (index < songs.length - 1) {
-                currSong.pause();
-                track = tarr[index + 1]
-                track = track.split("s/")[1].replace(".mp3", "")
-                track = decodeURIComponent(track);
-                playMusic(track)
+                if (index > 0) {
+                    currSong.pause();
+                    track = songs[index - 1]
+                    track = track.split("s/")[1].replace(".mp3", "")
+                    track = decodeURIComponent(track);
+    
+                    playMusic(track)
+                }
             }
 
         })
