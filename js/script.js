@@ -121,27 +121,6 @@ const playMusic = (track) => {
         }
     });
     nsel = 1;
-
-    // Array.from(document.querySelector(".songs").getElementsByClassName("song")).forEach(e => {
-    //     e.addEventListener("click", () => {
-    //         let trackName = e.querySelector('.sng-name').innerText.trim();
-
-    //     // Update track before the comparison
-    // if(nsel==1){
-    //     sel.classList.remove("border");
-    //     nsel=0;
-    // }
-    //         console.log(trackName)
-    //         console.log(e.firstElementChild.lastElementChild.innerHTML)
-    //    if( trackName==e.firstElementChild.lastElementChild.innerHTML){
-    //     sel = e;
-    //     console.log(sel);
-    //     sel.classList.add("border"); 
-    //     nsel =1;
-    // }
-
-    //     })})
-
     track.replace("$", "%24")
     if (track.startsWith("T")) {
         track = "/ts/" + track + ".mp3"
@@ -149,7 +128,7 @@ const playMusic = (track) => {
     else {
         track = "/Songs/" + track + ".mp3"
     }
-    // console.log("track",track)
+    console.log("track",track)
     // console.log(track);
     currSong.src = track;
     document.querySelector(".play").style.backgroundImage = `url("images/pause.svg")`
@@ -344,6 +323,7 @@ document.querySelector(".loop").addEventListener("click", toggleLoop);
         //         next and previous
         document.querySelector(".prev").addEventListener("click", () => {
             let index = songs.indexOf(currSong.src)
+            console.log(currSong.src)
             console.log(index);
             
             // if (index > 0) {
@@ -356,15 +336,18 @@ document.querySelector(".loop").addEventListener("click", toggleLoop);
             // }
         })
         document.querySelector(".next").addEventListener("click", () => {
-            let index = songs.indexOf(currSong.src.replace("https://sunlo.vercel.app", "https://raw.githubusercontent.com/YashTheLearner/Spotify-Clone/main").replace("$", "%24").trim());
+            let index = songs.indexOf(currSong.src)
+            console.log(currSong.src)
+            console.log(index);
+            // let index = songs.indexOf(currSong.src.replace("https://sunlo.vercel.app", "https://raw.githubusercontent.com/YashTheLearner/Spotify-Clone/main").replace("$", "%24").trim());
 
-            if (index < songs.length - 1) {
-                currSong.pause();
-                track = songs[index + 1]
-                track = track.split("s/")[1].replace(".mp3", "")
-                track = decodeURIComponent(track);
-                playMusic(track)
-            }
+            // if (index < songs.length - 1) {
+            //     currSong.pause();
+            //     track = songs[index + 1]
+            //     track = track.split("s/")[1].replace(".mp3", "")
+            //     track = decodeURIComponent(track);
+            //     playMusic(track)
+            // }
 
         })
 
