@@ -31,6 +31,16 @@ async function getSongs() {
     return songs;
 }
 
+async function getMySongs() {
+    let response = await fetch("https://api.github.com/repos/YashTheLearner/Spotify-Clone/contents/mysongs");
+    let data = await response.json();
+    let mysongs = data
+        .filter(item => item.type === 'file' && item.name.endsWith('.mp3'))
+        .map(item => item.download_url);
+    // console.log(songs);
+    return mysongs;
+}
+
 async function getTs() {
     let response = await fetch("https://api.github.com/repos/YashTheLearner/Spotify-Clone/contents/ts");
     let data = await response.json();
@@ -88,8 +98,11 @@ function militosec(seconds) { // Adjusted function to work with seconds directly
 function updateSongInfo(track, songName) {
     document.querySelector(".sng-name-l").innerHTML = track;
     document.querySelector(".cardr-txt").innerHTML = track;
+    if(songName.startsWith("K") || songName.startsWith("T")){
     document.querySelector(".cardr-logo").style.backgroundImage = `url("songs-cover/${songName}.jpg")`
-    document.querySelector(".sng-logo-l").style.backgroundImage = `url("songs-cover/${songName}.jpg")`
+    document.querySelector(".sng-logo-l").style.backgroundImage = `url("songs-cover/${songName}.jpg")`}
+    document.querySelector(".cardr-logo").style.backgroundImage = `url("songs-cover/music.png")`
+    document.querySelector(".sng-logo-l").style.backgroundImage = `url("songs-cover/music.png")`
 }
 let sel;
     let nsel = 0;
@@ -125,10 +138,13 @@ const playMusic = (track) => {
     if (track.startsWith("T")) {
         track = "/ts/" + track + ".mp3"
     }
-    else {
+    else if (track.startsWith("K")) {
         track = "/Songs/" + track + ".mp3"
     }
-    // console.log("track",track)
+    else {
+        track = "/mysongs/" + track + ".mp3"
+    }
+    console.log("track",track)
     // console.log(track);
     currSong.src = track;
     document.querySelector(".play").style.backgroundImage = `url("images/pause.svg")`
@@ -145,6 +161,8 @@ const playMusic = (track) => {
         let songs = await getSongs();
         let cover = await getCover();
         let tarr = await getTs();
+        let mysongs = await getMySongs();
+        console.log(mysongs);
 
         // set sample song //
         currSong = new Audio(songs[1]);
@@ -192,6 +210,22 @@ const playMusic = (track) => {
             }
             i = 1;
         }
+        function adminSongs() {
+
+            for (const song of mysongs) {
+                let songName = song.split("/mysongs/")[1];
+                songName = decodeURIComponent(songName);
+                // console.log(songName)
+                sngs.innerHTML = sngs.innerHTML + `<div class="song" >
+            <div class="sng-info">
+                <div class="sng-logo border" id="mysongs"></div>
+                <div class="sng-name">${songName.replace(".mp3", "")}</div>
+            </div><div class="lib-play"></div>`;
+                songName = songName.replace("mp3", "jpg").replaceAll(" ", "\\ ")
+                i++;
+            }
+            i = 1;
+        }
 
         //   select and plays the selected song from library   
 
@@ -201,6 +235,7 @@ const playMusic = (track) => {
                     track = e.firstElementChild.lastElementChild.innerHTML;
 
                     // console.log(e)
+                    console.log(track);
                     playMusic(track)
 
 
@@ -269,7 +304,7 @@ document.querySelector(".loop").addEventListener("click", toggleLoop);
         currSong.volume = 0.5
         document.querySelector(".m-bar-h").addEventListener("click", e => {
             let percent = (e.offsetX / e.target.getBoundingClientRect().width) * 100;
-            console.log(percent)
+            // console.log(percent)
             document.querySelector(".m-c").style.left = percent + "%";
             // console.log(percent);
             document.querySelector(".m-bar-g").style.width = percent + "%";
@@ -316,14 +351,21 @@ document.querySelector(".loop").addEventListener("click", toggleLoop);
             selected();
         }
         )
+        document.querySelector(".i3").addEventListener("click", () => {
+            document.querySelector(".songs").innerHTML = "";
+            adminSongs();
+            document.querySelector(".left").style.left = 0;
+            selected();
+        }
+        )
 
-        console.log(songs)
-        console.log(songs.length)
-        console.log(tarr)
+        // console.log(songs)
+        // console.log(songs.length)
+        // console.log(tarr)
         //         next and previous
         document.querySelector(".prev").addEventListener("click", () => {
-            console.log( typeof currSong.src)
-            console.log(currSong.src.replace("https://sunlo.vercel.app","https://raw.githubusercontent.com/YashTheLearner/SunLo/main").replace("$","%24").trim())
+            // console.log( typeof currSong.src)
+            // console.log(currSong.src.replace("https://sunlo.vercel.app","https://raw.githubusercontent.com/YashTheLearner/SunLo/main").replace("$","%24").trim())
             let index;
             if(currSong.src.includes('ts')){
                 index = tarr.indexOf(currSong.src.replace("https://sunlo.vercel.app","https://raw.githubusercontent.com/YashTheLearner/SunLo/main").replace("$","%24").trim());
@@ -348,8 +390,8 @@ document.querySelector(".loop").addEventListener("click", toggleLoop);
             }
         })
         document.querySelector(".next").addEventListener("click", () => {
-           console.log( typeof currSong.src)
-            console.log(currSong.src.replace("https://sunlo.vercel.app","https://raw.githubusercontent.com/YashTheLearner/SunLo/main").replace("$","%24").trim())
+        //    console.log( typeof currSong.src)
+            // console.log(currSong.src.replace("https://sunlo.vercel.app","https://raw.githubusercontent.com/YashTheLearner/SunLo/main").replace("$","%24").trim())
             let index;
             if(currSong.src.includes('ts')){
                 index = tarr.indexOf(currSong.src.replace("https://sunlo.vercel.app","https://raw.githubusercontent.com/YashTheLearner/SunLo/main").replace("$","%24").trim());

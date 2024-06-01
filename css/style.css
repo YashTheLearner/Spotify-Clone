@@ -315,11 +315,21 @@ font-size: 25px;
 }
 .i1 {
   background-image: url("/Artist/KR$NA.jpg");
+  background-color: #ffffff;
 }
 .i2 {
   background-position-y:1px ;
   background-position-x:-23px ;
   background-image: url(/Artist/Taylor\ Swift.jpg);
+}
+.i3 {
+  background-image: url(/images/logo.png);
+}
+#mysongs{
+  background-image: url(/songs-cover/music.png); 
+  background-size: 50px;
+  background-position: center;
+  background-color: #000000;
 }
 
 .cards-s{
