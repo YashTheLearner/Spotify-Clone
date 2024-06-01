@@ -374,51 +374,58 @@ document.querySelector(".loop").addEventListener("click", toggleLoop);
         // console.log(tarr)
         //         next and previous
         document.querySelector(".prev").addEventListener("click", () => {
+            // console.log( typeof currSong.src)
+            // console.log(currSong.src.replace("https://sunlo.vercel.app","https://raw.githubusercontent.com/YashTheLearner/SunLo/main").replace("$","%24").trim())
             let index;
-            let currentSongSrc = decodeURIComponent(currSong.src).replace("https://sunlo.vercel.app", "https://raw.githubusercontent.com/YashTheLearner/SunLo/main").replace("$", "%24").trim();
-        
-            if (currSong.src.includes('ts')) {
-                index = tarr.findIndex(t => decodeURIComponent(t) === currentSongSrc);
+            if(currSong.src.includes('ts')){
+                index = tarr.indexOf(currSong.src.replace("https://sunlo.vercel.app","https://raw.githubusercontent.com/YashTheLearner/SunLo/main").replace("$","%24").trim());
                 if (index > 0) {
                     currSong.pause();
-                    track = tarr[index - 1];
-                    track = decodeURIComponent(track.split("s/")[1].replace(".mp3", ""));
-                    playMusic(track);
-                }
-            } else {
-                index = songs.findIndex(s => decodeURIComponent(s) === currentSongSrc);
-                if (index > 0) {
-                    currSong.pause();
-                    track = songs[index - 1];
-                    track = decodeURIComponent(track.split("s/")[1].replace(".mp3", ""));
-                    playMusic(track);
+                    track = tarr[index - 1]
+                    track = track.split("s/")[1].replace(".mp3", "")
+                    track = decodeURIComponent(track);
+                    playMusic(track)
                 }
             }
-        });
-        
+            else{
+                index = songs.indexOf(currSong.src.replace("https://sunlo.vercel.app","https://raw.githubusercontent.com/YashTheLearner/SunLo/main").replace("$","%24").trim());
+                if (index > 0) {
+                    currSong.pause();
+                    track = songs[index - 1]
+                    track = track.split("s/")[1].replace(".mp3", "")
+                    track = decodeURIComponent(track);
+    
+                    playMusic(track)
+                }
+            }
+        })
         document.querySelector(".next").addEventListener("click", () => {
+        //    console.log( typeof currSong.src)
+            // console.log(currSong.src.replace("https://sunlo.vercel.app","https://raw.githubusercontent.com/YashTheLearner/SunLo/main").replace("$","%24").trim())
             let index;
-            let currentSongSrc = decodeURIComponent(currSong.src).replace("https://sunlo.vercel.app", "https://raw.githubusercontent.com/YashTheLearner/SunLo/main").replace("$", "%24").trim();
-        
-            if (currSong.src.includes('ts')) {
-                index = tarr.findIndex(t => decodeURIComponent(t) === currentSongSrc);
+            if(currSong.src.includes('ts')){
+                index = tarr.indexOf(currSong.src.replace("https://sunlo.vercel.app","https://raw.githubusercontent.com/YashTheLearner/SunLo/main").replace("$","%24").trim());
                 if (index < tarr.length - 1) {
                     currSong.pause();
-                    track = tarr[index + 1];
-                    track = decodeURIComponent(track.split("s/")[1].replace(".mp3", ""));
-                    playMusic(track);
-                }
-            } else {
-                index = songs.findIndex(s => decodeURIComponent(s) === currentSongSrc);
-                if (index < songs.length - 1) {
-                    currSong.pause();
-                    track = songs[index + 1];
-                    track = decodeURIComponent(track.split("s/")[1].replace(".mp3", ""));
-                    playMusic(track);
+                    track = tarr[index + 1]
+                    track = track.split("s/")[1].replace(".mp3", "")
+                    track = decodeURIComponent(track);
+                    playMusic(track)
                 }
             }
-        });
-        
+            else{
+                index = songs.indexOf(currSong.src.replace("https://sunlo.vercel.app","https://raw.githubusercontent.com/YashTheLearner/SunLo/main").replace("$","%24").trim());
+                if (index < songs.length - 1) {
+                    currSong.pause();
+                    track = songs[index + 1]
+                    track = track.split("s/")[1].replace(".mp3", "")
+                    track = decodeURIComponent(track);
+    
+                    playMusic(track)
+                }
+            }
+
+        })
 
 
 
