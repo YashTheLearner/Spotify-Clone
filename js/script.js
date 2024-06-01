@@ -107,11 +107,11 @@ function militosec(seconds) { // Adjusted function to work with seconds directly
 function updateSongInfo(track, songName) {
     document.querySelector(".sng-name-l").innerHTML = track;
     document.querySelector(".cardr-txt").innerHTML = track;
-    if(songName.startsWith("K") || songName.startsWith("T")){
+    // if(songName.startsWith("K") || songName.startsWith("T")){
     document.querySelector(".cardr-logo").style.backgroundImage = `url("songs-cover/${songName}.jpg")`
-    document.querySelector(".sng-logo-l").style.backgroundImage = `url("songs-cover/${songName}.jpg")`}
-    document.querySelector(".cardr-logo").style.backgroundImage = `url("songs-cover/music.png")`
-    document.querySelector(".sng-logo-l").style.backgroundImage = `url("songs-cover/music.png")`
+    document.querySelector(".sng-logo-l").style.backgroundImage = `url("songs-cover/${songName}.jpg")`
+    // document.querySelector(".cardr-logo").style.backgroundImage = `url("songs-cover/music.png")`
+    // document.querySelector(".sng-logo-l").style.backgroundImage = `url("songs-cover/music.png")`
 }
 let sel;
     let nsel = 0;
