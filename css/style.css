@@ -299,7 +299,9 @@ font-size: 25px;
 }
 .cards-a {
   display: flex;
+  flex-wrap: wrap;
   gap: 20px;
+  row-gap: 50px;
   height: 55vh;
   justify-content: space-evenly;
   overflow-y: auto;
@@ -683,8 +685,9 @@ font-size: 25px;
     height: 60px;
   }
   .cards-a{
-    flex-direction: column;
+    /* flex-direction: column; */
     height: 56vh;
+    /* flex-wrap: wrap; */
   }
   .card-a{
     margin: auto;
