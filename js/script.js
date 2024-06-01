@@ -109,9 +109,9 @@ let sel;
 //  plays the song
 let currSong = new Audio()
 const playMusic = (track) => {
-    // console.log("track", track)
+    console.log("track", track)
     songName = track.replace(" ", "\\ ")
-    // console.log("songName",songName)
+    console.log("songName",songName)
 
     updateSongInfo(track, songName)
 
