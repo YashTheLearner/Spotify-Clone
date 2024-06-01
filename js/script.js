@@ -53,21 +53,30 @@ async function getTs() {
 
 //      function to get song cover
 async function getCover() {
-    let a = await fetch("/songs-cover/");
-    let response = await a.text();
-    let div = document.createElement("div");
-    div.innerHTML = response;
-    let as = div.getElementsByTagName("a");
-    let songsCover = [];
-    for (let index = 0; index < as.length; index++) {
-        const element = as[index];
-        if (element.href.endsWith(".jpg")) {
-            songsCover.push(element.href)
-        }
-    }
-    // console.log(songsCover)
+    let response = await fetch("https://api.github.com/repos/YashTheLearner/Spotify-Clone/contents/songs-cover");
+    let data = await response.json();
+    let songsCover = data
+        .filter(item => item.type === 'file' && item.name.endsWith('.jpg'))
+        .map(item => item.download_url);
+    // console.log(ts);
     return songsCover;
 }
+// async function getCover() {
+//     let a = await fetch("/songs-cover/");
+//     let response = await a.text();
+//     let div = document.createElement("div");
+//     div.innerHTML = response;
+//     let as = div.getElementsByTagName("a");
+//     let songsCover = [];
+//     for (let index = 0; index < as.length; index++) {
+//         const element = as[index];
+//         if (element.href.endsWith(".jpg")) {
+//             songsCover.push(element.href)
+//         }
+//     }
+//     // console.log(songsCover)
+//     return songsCover;
+// }
 
 // for responsive design
 let ham = document.querySelector(".ham")
